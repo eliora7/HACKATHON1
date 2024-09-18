@@ -1,5 +1,6 @@
 import pygame
 import sys
+from soundplay import playsound
 
 pygame.init()
 
@@ -26,6 +27,10 @@ BYE = pygame.image.load("bye.png")
 BYE = pygame.transform.scale(BYE, (500, 600), )
 IS_COMING = pygame.image.load("is_coming.png")
 IS_COMING = pygame.transform.scale(IS_COMING, (700, 200), )
+PHONE_NUM_TITLE = pygame.image.load("phone_num.png")
+PHONE_NUM_TITLE = pygame.transform.scale(PHONE_NUM_TITLE, (700, 200), )
+NOT_REGISTERED = pygame.image.load("not_registered.png")
+NOT_REGISTERED = pygame.transform.scale(NOT_REGISTERED, (700, 600), )
 
 # Photos of the volunteers:
 PEOPLE1 = pygame.image.load("people1.png")
