@@ -1,74 +1,110 @@
 from CONSTS import *
 
 pygame.init()
+# Creating logo screen:
 screen = pygame.display.set_mode((1500, 1000))
 pygame.display.set_caption("Golden Support")
-# Creating the screen:
-screen3 = pygame.display.set_mode((1500, 1000))
-screen3.fill((240, 194, 70))
+screen.fill((240, 194, 70))
 screen_display = pygame.display
-screen3.blit(LOGO, (400, 100))
+screen.blit(LOGO, (400, 100))
+screen_display.update()
+pygame.time.delay(3000)
 pygame.display.flip()
-phone_num_elder = input("Please enter your phone number to enter the application: ")
-if phone_num_elder not in ELDERLY_PHONE_NUM:
+
+# Creating phone_num screen:
+clock = pygame.time.Clock()
+screen = pygame.display.set_mode([1500, 1000])
+base_font = pygame.font.Font(None, 32)
+user_text = ''
+input_rect = pygame.Rect(650, 500, 140, 32)
+color_passive = pygame.Color('chartreuse4')
+color = color_passive
+
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_BACKSPACE:
+                user_text = user_text[:-1]
+            else:
+                user_text += event.unicode
+
+            if len(user_text) == 10:
+                running = False
+
+    screen.fill((255, 255, 255))
+    pygame.draw.rect(screen, color, input_rect)
+    text_surface = base_font.render(user_text, True, (255, 255, 255))
+    screen.blit(text_surface, (input_rect.x + 5, input_rect.y + 5))
+    pygame.display.flip()
+    clock.tick(60)
+
+# Creating hello elder screen:
+if user_text not in ELDERLY_PHONE_NUM:
     print("We are sorry you are not registered for the application :( ")
     print("contact us to register: 0504667841- Golden Support")
 else:
-    if phone_num_elder == ELDERLY_PEOPLE_DICT["ELDER1"]:
-        screen3 = pygame.display.set_mode((1500, 1000))
-        screen3.fill((240, 194, 70))
+    pygame.time.delay(500)
+    if user_text == ELDERLY_PEOPLE_DICT["ELDER1"]:
+        screen = pygame.display.set_mode((1500, 1000))
+        screen.fill((240, 194, 70))
         screen_display = pygame.display
-        screen3.blit(ELDER1, (400, 100))
+        screen.blit(ELDER1, (400, 100))
         screen.blit(SMALL_LOGO, (20, 20))
         screen_display.update()
         pygame.time.delay(3000)
 
-    elif phone_num_elder == ELDERLY_PEOPLE_DICT["ELDER2"]:
-        screen3 = pygame.display.set_mode((1500, 1000))
-        screen3.fill((240, 194, 70))
+    elif user_text == ELDERLY_PEOPLE_DICT["ELDER2"]:
+        screen = pygame.display.set_mode((1500, 1000))
+        screen.fill((240, 194, 70))
         screen_display = pygame.display
-        screen3.blit(ELDER2, (400, 100))
+        screen.blit(ELDER2, (400, 100))
         screen.blit(SMALL_LOGO, (20, 20))
         screen_display.update()
         pygame.time.delay(3000)
 
-    elif phone_num_elder == ELDERLY_PEOPLE_DICT["ELDER3"]:
-        screen3 = pygame.display.set_mode((1500, 1000))
-        screen3.fill((240, 194, 70))
+    elif user_text == ELDERLY_PEOPLE_DICT["ELDER3"]:
+        screen = pygame.display.set_mode((1500, 1000))
+        screen.fill((240, 194, 70))
         screen_display = pygame.display
-        screen3.blit(ELDER3, (400, 100))
+        screen.blit(ELDER3, (400, 100))
         screen.blit(SMALL_LOGO, (20, 20))
         screen_display.update()
         pygame.time.delay(3000)
 
-    elif phone_num_elder == ELDERLY_PEOPLE_DICT["ELDER4"]:
-        screen3 = pygame.display.set_mode((1500, 1000))
-        screen3.fill((240, 194, 70))
+    elif user_text == ELDERLY_PEOPLE_DICT["ELDER4"]:
+        screen = pygame.display.set_mode((1500, 1000))
+        screen.fill((240, 194, 70))
         screen_display = pygame.display
-        screen3.blit(ELDER4, (400, 100))
+        screen.blit(ELDER4, (400, 100))
         screen.blit(SMALL_LOGO, (20, 20))
         screen_display.update()
         pygame.time.delay(3000)
 
-    elif phone_num_elder == ELDERLY_PEOPLE_DICT["ELDER5"]:
-        screen3 = pygame.display.set_mode((1500, 1000))
-        screen3.fill((240, 194, 70))
+    elif user_text == ELDERLY_PEOPLE_DICT["ELDER5"]:
+        screen = pygame.display.set_mode((1500, 1000))
+        screen.fill((240, 194, 70))
         screen_display = pygame.display
-        screen3.blit(ELDER5, (400, 100))
+        screen.blit(ELDER5, (400, 100))
         screen.blit(SMALL_LOGO, (20, 20))
         screen_display.update()
         pygame.time.delay(3000)
 
-    elif phone_num_elder == ELDERLY_PEOPLE_DICT["ELDER6"]:
-        screen3 = pygame.display.set_mode((1500, 1000))
-        screen3.fill((240, 194, 70))
+    elif user_text == ELDERLY_PEOPLE_DICT["ELDER6"]:
+        screen = pygame.display.set_mode((1500, 1000))
+        screen.fill((240, 194, 70))
         screen_display = pygame.display
-        screen3.blit(ELDER6, (400, 100))
+        screen.blit(ELDER6, (400, 100))
         screen.blit(SMALL_LOGO, (20, 20))
         screen_display.update()
         pygame.time.delay(3000)
     pygame.display.flip()
 
+    # Creating activity screen:
     running = True
     while running:
         screen.fill((240, 194, 70))
@@ -88,10 +124,11 @@ else:
                 pygame.quit()
                 sys.exit()
 
+            # Creating is coming screen:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_1:
-                    screen2 = pygame.display.set_mode((1500, 1000))
-                    screen2.fill((255, 228, 181))
+                    screen = pygame.display.set_mode((1500, 1000))
+                    screen.fill((255, 228, 181))
                     screen.blit(PEOPLE1, (400, 100))
                     screen.blit(IS_COMING, (400, 800))
                     screen.blit(SMALL_LOGO, (20, 20))
@@ -101,8 +138,8 @@ else:
                     pygame.time.delay(3000)
 
                 elif event.key == pygame.K_2:
-                    screen2 = pygame.display.set_mode((1500, 1000))
-                    screen2.fill((255, 228, 181))
+                    screen = pygame.display.set_mode((1500, 1000))
+                    screen.fill((255, 228, 181))
                     screen.blit(PEOPLE2, (400, 100))
                     screen.blit(IS_COMING, (400, 800))
                     screen.blit(SMALL_LOGO, (20, 20))
@@ -112,8 +149,8 @@ else:
                     pygame.time.delay(3000)
 
                 elif event.key == pygame.K_3:
-                    screen2 = pygame.display.set_mode((1500, 1000))
-                    screen2.fill((255, 228, 181))
+                    screen = pygame.display.set_mode((1500, 1000))
+                    screen.fill((255, 228, 181))
                     screen.blit(PEOPLE3, (400, 100))
                     screen.blit(IS_COMING, (400, 800))
                     screen.blit(SMALL_LOGO, (20, 20))
@@ -123,8 +160,8 @@ else:
                     pygame.time.delay(3000)
 
                 elif event.key == pygame.K_4:
-                    screen2 = pygame.display.set_mode((1500, 1000))
-                    screen2.fill((255, 228, 181))
+                    screen = pygame.display.set_mode((1500, 1000))
+                    screen.fill((255, 228, 181))
                     screen.blit(PEOPLE4, (400, 100))
                     screen.blit(IS_COMING, (400, 800))
                     screen.blit(SMALL_LOGO, (20, 20))
@@ -134,8 +171,8 @@ else:
                     pygame.time.delay(3000)
 
                 elif event.key == pygame.K_5:
-                    screen2 = pygame.display.set_mode((1500, 1000))
-                    screen2.fill((255, 228, 181))
+                    screen = pygame.display.set_mode((1500, 1000))
+                    screen.fill((255, 228, 181))
                     screen.blit(PEOPLE5, (400, 100))
                     screen.blit(IS_COMING, (400, 800))
                     screen.blit(SMALL_LOGO, (20, 20))
@@ -145,8 +182,8 @@ else:
                     pygame.time.delay(3000)
 
                 elif event.key == pygame.K_6:
-                    screen2 = pygame.display.set_mode((1500, 1000))
-                    screen2.fill((255, 228, 181))
+                    screen = pygame.display.set_mode((1500, 1000))
+                    screen.fill((255, 228, 181))
                     screen.blit(PEOPLE6, (400, 100))
                     screen.blit(IS_COMING, (400, 800))
                     screen.blit(SMALL_LOGO, (20, 20))
@@ -156,6 +193,7 @@ else:
                     running = False
             pygame.display.flip()
 
+    # Creating last screen:
     last_screen = pygame.display.set_mode((1500, 1000))
     last_screen.fill((240, 194, 70))
     screen_display = pygame.display
