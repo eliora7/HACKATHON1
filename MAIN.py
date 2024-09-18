@@ -93,6 +93,7 @@ else:
                     screen2 = pygame.display.set_mode((1500, 1000))
                     screen2.fill((255, 228, 181))
                     screen.blit(PEOPLE1, (400, 100))
+                    screen.blit(IS_COMING, (400, 800))
                     screen.blit(SMALL_LOGO, (20, 20))
                     screen_display = pygame.display
                     screen_display.update()
@@ -103,6 +104,7 @@ else:
                     screen2 = pygame.display.set_mode((1500, 1000))
                     screen2.fill((255, 228, 181))
                     screen.blit(PEOPLE2, (400, 100))
+                    screen.blit(IS_COMING, (400, 800))
                     screen.blit(SMALL_LOGO, (20, 20))
                     screen_display = pygame.display
                     screen_display.update()
@@ -113,6 +115,7 @@ else:
                     screen2 = pygame.display.set_mode((1500, 1000))
                     screen2.fill((255, 228, 181))
                     screen.blit(PEOPLE3, (400, 100))
+                    screen.blit(IS_COMING, (400, 800))
                     screen.blit(SMALL_LOGO, (20, 20))
                     screen_display = pygame.display
                     screen_display.update()
@@ -123,6 +126,7 @@ else:
                     screen2 = pygame.display.set_mode((1500, 1000))
                     screen2.fill((255, 228, 181))
                     screen.blit(PEOPLE4, (400, 100))
+                    screen.blit(IS_COMING, (400, 800))
                     screen.blit(SMALL_LOGO, (20, 20))
                     screen_display = pygame.display
                     screen_display.update()
@@ -133,6 +137,7 @@ else:
                     screen2 = pygame.display.set_mode((1500, 1000))
                     screen2.fill((255, 228, 181))
                     screen.blit(PEOPLE5, (400, 100))
+                    screen.blit(IS_COMING, (400, 800))
                     screen.blit(SMALL_LOGO, (20, 20))
                     screen_display = pygame.display
                     screen_display.update()
@@ -143,6 +148,7 @@ else:
                     screen2 = pygame.display.set_mode((1500, 1000))
                     screen2.fill((255, 228, 181))
                     screen.blit(PEOPLE6, (400, 100))
+                    screen.blit(IS_COMING, (400, 800))
                     screen.blit(SMALL_LOGO, (20, 20))
                     screen_display = pygame.display
                     screen_display.update()

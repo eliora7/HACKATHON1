@@ -3,7 +3,7 @@ import sys
 
 pygame.init()
 
-# Pictures of actions:
+# Pictures:
 FOOD = pygame.image.load("food.png")
 FOOD = pygame.transform.scale(FOOD, (250, 250), )
 CLEAN = pygame.image.load("clean.png")
@@ -24,6 +24,8 @@ TITLE = pygame.image.load("title.png")
 TITLE = pygame.transform.scale(TITLE, (700, 200), )
 BYE = pygame.image.load("bye.png")
 BYE = pygame.transform.scale(BYE, (500, 600), )
+IS_COMING = pygame.image.load("is_coming.png")
+IS_COMING = pygame.transform.scale(IS_COMING, (700, 200), )
 
 # Photos of the volunteers:
 PEOPLE1 = pygame.image.load("people1.png")
