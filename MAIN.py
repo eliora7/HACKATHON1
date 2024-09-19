@@ -19,7 +19,6 @@ input_rect = pygame.Rect(520, 500, 430, 100)
 color_passive = pygame.Color("black")
 color = color_passive
 
-# Relax music:
 pygame.mixer.init()
 pygame.mixer.music.load('relax_song.mp3')
 pygame.mixer.music.set_volume(0.7)
@@ -117,12 +116,14 @@ else:
         playsound('elder6.mp3')
     pygame.display.flip()
 
+    # Creating did you see well screen:
     WHAT_PRESS = 9
     run = True
     screen = pygame.display.set_mode((1500, 1000))
     screen.fill((240, 194, 70))
     screen_display = pygame.display
     screen.blit(SMALL_LOGO, (20, 20))
+    screen.blit(BLIND, (350, 100))
     screen_display.update()
     playsound('did_you_see_well.mp3')
     while run:
@@ -131,7 +132,6 @@ else:
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
-            # Creating is coming screen:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_0:
                     WHAT_PRESS = 0
@@ -139,9 +139,19 @@ else:
                     WHAT_PRESS = 1
                 if event.key == pygame.K_1 or event.key == pygame.K_0:
                     # Creating activity screen:
+                    pygame.time.delay(500)
+                    if WHAT_PRESS == 1:
+                        pygame.mixer.init()
+                        pygame.mixer.music.load('cant_see_well.mp3')
+                        pygame.mixer.music.set_volume(0.7)
+                        pygame.mixer.music.play()
+                    elif WHAT_PRESS == 0:
+                        pygame.mixer.init()
+                        pygame.mixer.music.load('relax_song.mp3')
+                        pygame.mixer.music.set_volume(0.7)
+                        pygame.mixer.music.play()
                     running = True
                     while running:
-
                         screen.fill((240, 194, 70))
                         screen.blit(TITLE, (400, 50))
                         screen.blit(FOOD, (200, 250))
@@ -162,6 +172,7 @@ else:
                             # Creating is coming screen:
                             if event.type == pygame.KEYDOWN:
                                 if event.key == pygame.K_1:
+                                    pygame.mixer.music.stop()
                                     screen = pygame.display.set_mode((1500, 1000))
                                     screen.fill((255, 228, 181))
                                     screen.blit(PEOPLE1, (400, 100))
@@ -170,9 +181,13 @@ else:
                                     screen_display = pygame.display
                                     screen_display.update()
                                     running = False
-                                    pygame.time.delay(3000)
+                                    if WHAT_PRESS == 1:
+                                        playsound("people1_coming.mp3")
+                                    else:
+                                        playsound("is_coming_song.mp3")
 
                                 elif event.key == pygame.K_2:
+                                    pygame.mixer.music.stop()
                                     screen = pygame.display.set_mode((1500, 1000))
                                     screen.fill((255, 228, 181))
                                     screen.blit(PEOPLE2, (400, 100))
@@ -181,9 +196,13 @@ else:
                                     screen_display = pygame.display
                                     screen_display.update()
                                     running = False
-                                    pygame.time.delay(3000)
+                                    if WHAT_PRESS == 1:
+                                        playsound("people2_coming.mp3")
+                                    else:
+                                        playsound("is_coming_song.mp3")
 
                                 elif event.key == pygame.K_3:
+                                    pygame.mixer.music.stop()
                                     screen = pygame.display.set_mode((1500, 1000))
                                     screen.fill((255, 228, 181))
                                     screen.blit(PEOPLE3, (400, 100))
@@ -192,9 +211,13 @@ else:
                                     screen_display = pygame.display
                                     screen_display.update()
                                     running = False
-                                    pygame.time.delay(3000)
+                                    if WHAT_PRESS == 1:
+                                        playsound("people3_coming.mp3")
+                                    else:
+                                        playsound("is_coming_song.mp3")
 
                                 elif event.key == pygame.K_4:
+                                    pygame.mixer.music.stop()
                                     screen = pygame.display.set_mode((1500, 1000))
                                     screen.fill((255, 228, 181))
                                     screen.blit(PEOPLE4, (400, 100))
@@ -203,9 +226,13 @@ else:
                                     screen_display = pygame.display
                                     screen_display.update()
                                     running = False
-                                    pygame.time.delay(3000)
+                                    if WHAT_PRESS == 1:
+                                        playsound("people4_coming.mp3")
+                                    else:
+                                        playsound("is_coming_song.mp3")
 
                                 elif event.key == pygame.K_5:
+                                    pygame.mixer.music.stop()
                                     screen = pygame.display.set_mode((1500, 1000))
                                     screen.fill((255, 228, 181))
                                     screen.blit(PEOPLE5, (400, 100))
@@ -214,9 +241,13 @@ else:
                                     screen_display = pygame.display
                                     screen_display.update()
                                     running = False
-                                    pygame.time.delay(3000)
+                                    if WHAT_PRESS == 1:
+                                        playsound("people5_coming.mp3")
+                                    else:
+                                        playsound("is_coming_song.mp3")
 
                                 elif event.key == pygame.K_6:
+                                    pygame.mixer.music.stop()
                                     screen = pygame.display.set_mode((1500, 1000))
                                     screen.fill((255, 228, 181))
                                     screen.blit(PEOPLE6, (400, 100))
@@ -224,7 +255,10 @@ else:
                                     screen.blit(SMALL_LOGO, (20, 20))
                                     screen_display = pygame.display
                                     screen_display.update()
-                                    pygame.time.delay(3000)
+                                    if WHAT_PRESS == 1:
+                                        playsound("people6_coming.mp3")
+                                    else:
+                                        playsound("is_coming_song.mp3")
                                     running = False
                             pygame.display.flip()
 
@@ -235,8 +269,8 @@ else:
                     screen.blit(BYE, (550, 200))
                     screen.blit(SMALL_LOGO, (20, 20))
                     screen_display.update()
+                    pygame.time.delay(200)
                     playsound('bye.mp3')
                     pygame.display.flip()
                     pygame.quit()
                     sys.exit()
-

@@ -33,6 +33,8 @@ PHONE_NUM_TITLE = pygame.image.load("phone_num.png")
 PHONE_NUM_TITLE = pygame.transform.scale(PHONE_NUM_TITLE, (700, 200), )
 NOT_REGISTERED = pygame.image.load("not_registered.png")
 NOT_REGISTERED = pygame.transform.scale(NOT_REGISTERED, (800, 700), )
+BLIND = pygame.image.load("blind.png")
+BLIND = pygame.transform.scale(BLIND, (800, 700), )
 
 # Photos of the volunteers:
 PEOPLE1 = pygame.image.load("people1.png")
