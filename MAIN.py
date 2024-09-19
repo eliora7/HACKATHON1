@@ -112,10 +112,9 @@ if user_text not in ELDERLY_PHONE_NUM:  # or in database
                             screen.blit(SMALL_LOGO, (20, 20))
                             screen_display.update()
                             ELDERLY_PEOPLE_DICT[user_name] = user_text
-                            with open("dict_file.txt","w") as file:
-                                for name,num in ELDERLY_PEOPLE_DICT.items():
-
-                                    file.write(name+" "+num+"\n")
+                            with open("dict_file.txt", "w") as file:
+                                for name, num in ELDERLY_PEOPLE_DICT.items():
+                                    file.write(name + " " + num + "\n")
                             ELDERLY_PHONE_NUM.append(user_text)
                             with open("list_file.txt", "w") as file:
                                 for tel in ELDERLY_PHONE_NUM:

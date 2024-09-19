@@ -83,10 +83,7 @@ LANGUAGE = 'en'
 with open("list_file.txt") as f:
     for line in f:
         if line[:-1] not in ELDERLY_PHONE_NUM:
-            # print(type(line))
-            # print(line)
             ELDERLY_PHONE_NUM.append(line[:-1])
-# print(ELDERLY_PHONE_NUM)
 HELLO_ELDER1 = 'Hello Ruth'
 my_obj = gTTS(text=HELLO_ELDER1, lang=LANGUAGE, slow=False)
 my_obj.save("elder1.mp3")
