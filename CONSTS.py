@@ -1,6 +1,8 @@
 import pygame
 import sys
 from soundplay import playsound
+from gtts import gTTS
+import os
 
 pygame.init()
 
@@ -30,7 +32,7 @@ IS_COMING = pygame.transform.scale(IS_COMING, (700, 200), )
 PHONE_NUM_TITLE = pygame.image.load("phone_num.png")
 PHONE_NUM_TITLE = pygame.transform.scale(PHONE_NUM_TITLE, (700, 200), )
 NOT_REGISTERED = pygame.image.load("not_registered.png")
-NOT_REGISTERED = pygame.transform.scale(NOT_REGISTERED, (700, 600), )
+NOT_REGISTERED = pygame.transform.scale(NOT_REGISTERED, (800, 700), )
 
 # Photos of the volunteers:
 PEOPLE1 = pygame.image.load("people1.png")
@@ -65,3 +67,38 @@ ELDERLY_PEOPLE_LIST = [["0509887622", ELDER1], ["0544478914", ELDER2], ["0529883
 ELDERLY_PHONE_NUM = ["0509887622", "0544478914", "0529883455", "0501665897", "0522115633", "0525593288"]
 ELDERLY_PEOPLE_DICT = {"ELDER1": "0509887622", "ELDER2": "0544478914", "ELDER3": "0529883455", "ELDER4": "0501665897",
                        "ELDER5": "0522115633", "ELDER6": "0525593288"}
+
+elder1 = 'Hello Ruth'
+language = 'en'
+my_obj = gTTS(text=elder1, lang=language, slow=False)
+my_obj.save("elder1.mp3")
+
+elder2 = 'Hello Anna'
+language = 'en'
+my_obj = gTTS(text=elder2, lang=language, slow=False)
+my_obj.save("elder2.mp3")
+
+elder3 = 'Hello Rivka'
+language = 'en'
+my_obj = gTTS(text=elder3, lang=language, slow=False)
+my_obj.save("elder3.mp3")
+
+elder4 = 'Hello Moshe'
+language = 'en'
+my_obj = gTTS(text=elder4, lang=language, slow=False)
+my_obj.save("elder4.mp3")
+
+elder5 = 'Hello Shlomi'
+language = 'en'
+my_obj = gTTS(text=elder5, lang=language, slow=False)
+my_obj.save("elder5.mp3")
+
+elder6 = 'Hello Avi'
+language = 'en'
+my_obj = gTTS(text=elder6, lang=language, slow=False)
+my_obj.save("elder6.mp3")
+
+bye = 'Thank you for using our application, bye bye'
+language = 'en'
+my_obj = gTTS(text=bye, lang=language, slow=False)
+my_obj.save("bye.mp3")

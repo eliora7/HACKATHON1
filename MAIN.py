@@ -9,7 +9,12 @@ screen_display = pygame.display
 screen.blit(LOGO, (400, 100))
 screen_display.update()
 playsound('song.mp3')
-pygame.display.flip()
+
+# import pyttsx3
+#
+# engine = pyttsx3.init()
+# engine.save_to_file(text='Hello World', filename='PATH/TO/OUTPUT.wav')
+# engine.runAndWait()
 
 # Creating phone_num screen:
 clock = pygame.time.Clock()
@@ -19,6 +24,13 @@ user_text = ''
 input_rect = pygame.Rect(520, 500, 430, 100)
 color_passive = pygame.Color("black")
 color = color_passive
+
+# Relax music:
+pygame.mixer.init()  # Initiate pygame.mixer
+pygame.mixer.music.load('relax_song.mp3')  # Load song to play
+pygame.mixer.music.set_volume(0.7)  # Change volume
+pygame.mixer.music.play()  # Play song infinitely
+pygame.mixer.music.rewind()
 
 running = True
 while running:
@@ -34,26 +46,28 @@ while running:
                 user_text += event.unicode
 
             if len(user_text) == 10:
+                pygame.mixer.music.stop()
                 running = False
     screen.fill((240, 194, 70))
     pygame.draw.rect(screen, color, input_rect)
-    text_surface = base_font.render(user_text, True, (255,255,255))
+    text_surface = base_font.render(user_text, True, (255, 255, 255))
     screen.blit(text_surface, (input_rect.x + 5, input_rect.y + 15))
     screen.blit(PHONE_NUM_TITLE, (385, 100))
     screen.blit(SMALL_LOGO, (20, 20))
     pygame.display.flip()
 
-# Creating hello elder screen:
+# Creating not registered screen:
 if user_text not in ELDERLY_PHONE_NUM:
     pygame.time.delay(500)
     screen = pygame.display.set_mode((1500, 1000))
     screen.fill((240, 194, 70))
     screen_display = pygame.display
     screen.blit(SMALL_LOGO, (20, 20))
-    screen.blit(NOT_REGISTERED, (400, 100))
+    screen.blit(NOT_REGISTERED, (350, 100))
     screen_display.update()
-    pygame.time.delay(3000)
+    playsound('sad_song.mp3')
 
+# Creating hello elder screen:
 else:
     pygame.time.delay(500)
     if user_text == ELDERLY_PEOPLE_DICT["ELDER1"]:
@@ -63,7 +77,8 @@ else:
         screen.blit(ELDER1, (400, 100))
         screen.blit(SMALL_LOGO, (20, 20))
         screen_display.update()
-        pygame.time.delay(3000)
+        playsound('elder1.mp3')
+
 
     elif user_text == ELDERLY_PEOPLE_DICT["ELDER2"]:
         screen = pygame.display.set_mode((1500, 1000))
@@ -72,7 +87,7 @@ else:
         screen.blit(ELDER2, (400, 100))
         screen.blit(SMALL_LOGO, (20, 20))
         screen_display.update()
-        pygame.time.delay(3000)
+        playsound('elder2.mp3')
 
     elif user_text == ELDERLY_PEOPLE_DICT["ELDER3"]:
         screen = pygame.display.set_mode((1500, 1000))
@@ -81,7 +96,7 @@ else:
         screen.blit(ELDER3, (400, 100))
         screen.blit(SMALL_LOGO, (20, 20))
         screen_display.update()
-        pygame.time.delay(3000)
+        playsound('elder3.mp3')
 
     elif user_text == ELDERLY_PEOPLE_DICT["ELDER4"]:
         screen = pygame.display.set_mode((1500, 1000))
@@ -90,7 +105,7 @@ else:
         screen.blit(ELDER4, (400, 100))
         screen.blit(SMALL_LOGO, (20, 20))
         screen_display.update()
-        pygame.time.delay(3000)
+        playsound('elder4.mp3')
 
     elif user_text == ELDERLY_PEOPLE_DICT["ELDER5"]:
         screen = pygame.display.set_mode((1500, 1000))
@@ -99,7 +114,7 @@ else:
         screen.blit(ELDER5, (400, 100))
         screen.blit(SMALL_LOGO, (20, 20))
         screen_display.update()
-        pygame.time.delay(3000)
+        playsound('elder5.mp3')
 
     elif user_text == ELDERLY_PEOPLE_DICT["ELDER6"]:
         screen = pygame.display.set_mode((1500, 1000))
@@ -108,7 +123,7 @@ else:
         screen.blit(ELDER6, (400, 100))
         screen.blit(SMALL_LOGO, (20, 20))
         screen_display.update()
-        pygame.time.delay(3000)
+        playsound('elder6.mp3')
     pygame.display.flip()
 
     # Creating activity screen:
@@ -207,6 +222,5 @@ else:
     screen.blit(BYE, (550, 200))
     screen.blit(SMALL_LOGO, (20, 20))
     screen_display.update()
-    pygame.time.delay(3000)
+    playsound('bye.mp3')
     pygame.display.flip()
-
