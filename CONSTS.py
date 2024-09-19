@@ -35,6 +35,10 @@ NOT_REGISTERED = pygame.image.load("not_registered.png")
 NOT_REGISTERED = pygame.transform.scale(NOT_REGISTERED, (800, 700), )
 BLIND = pygame.image.load("blind.png")
 BLIND = pygame.transform.scale(BLIND, (800, 700), )
+ENTER_NAME = pygame.image.load("enter_name.png")
+ENTER_NAME = pygame.transform.scale(ENTER_NAME, (800, 200), )
+TEXT_GLAD = pygame.image.load("text_glad.png")
+TEXT_GLAD = pygame.transform.scale(TEXT_GLAD, (800, 300), )
 
 # Photos of the volunteers:
 PEOPLE1 = pygame.image.load("people1.png")
@@ -69,10 +73,20 @@ ELDERLY_PEOPLE_LIST = [["0509887622", ELDER1], ["0544478914", ELDER2], ["0529883
 ELDERLY_PHONE_NUM = ["0509887622", "0544478914", "0529883455", "0501665897", "0522115633", "0525593288"]
 ELDERLY_PEOPLE_DICT = {"ELDER1": "0509887622", "ELDER2": "0544478914", "ELDER3": "0529883455", "ELDER4": "0501665897",
                        "ELDER5": "0522115633", "ELDER6": "0525593288"}
-
+with open("dict_file.txt") as f:
+    for line in f:
+        (k, v) = line.split()
+        ELDERLY_PEOPLE_DICT[k] = v
 # Play the text:
 LANGUAGE = 'en'
 
+with open("list_file.txt") as f:
+    for line in f:
+        if line[:-1] not in ELDERLY_PHONE_NUM:
+            # print(type(line))
+            # print(line)
+            ELDERLY_PHONE_NUM.append(line[:-1])
+# print(ELDERLY_PHONE_NUM)
 HELLO_ELDER1 = 'Hello Ruth'
 my_obj = gTTS(text=HELLO_ELDER1, lang=LANGUAGE, slow=False)
 my_obj.save("elder1.mp3")
@@ -135,3 +149,4 @@ DID_YOU_SEE_WELL = "If you can't see well? press 1. else press 0"
 my_obj = gTTS(text=DID_YOU_SEE_WELL, lang=LANGUAGE, slow=False)
 my_obj.save("did_you_see_well.mp3")
 
+DATABASE = "file.txt"

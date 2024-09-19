@@ -23,6 +23,7 @@ pygame.mixer.init()
 pygame.mixer.music.load('relax_song.mp3')
 pygame.mixer.music.set_volume(0.7)
 pygame.mixer.music.play()
+user_text = ''
 running = True
 while running:
     for event in pygame.event.get():
@@ -48,7 +49,8 @@ while running:
     pygame.display.flip()
 
 # Creating not registered screen:
-if user_text not in ELDERLY_PHONE_NUM:
+user_name = ''
+if user_text not in ELDERLY_PHONE_NUM:  # or in database
     pygame.time.delay(500)
     screen = pygame.display.set_mode((1500, 1000))
     screen.fill((240, 194, 70))
@@ -57,6 +59,78 @@ if user_text not in ELDERLY_PHONE_NUM:
     screen.blit(NOT_REGISTERED, (350, 100))
     screen_display.update()
     playsound('sad_song.mp3')
+    run = True
+    while run:
+        for event in pygame.event.get():
+            # Clicking on the red X:
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_KP_PLUS:
+                    clock = pygame.time.Clock()
+                    screen = pygame.display.set_mode([1500, 1000])
+                    base_font = pygame.font.Font(None, 100)
+                    user_name = ''
+                    input_rect = pygame.Rect(520, 500, 430, 100)
+                    color_passive = pygame.Color("black")
+                    color = color_passive
+
+                    pygame.mixer.init()
+                    pygame.mixer.music.load('relax_song.mp3')
+                    pygame.mixer.music.set_volume(0.7)
+                    pygame.mixer.music.play()
+                    running = True
+                    while running:
+                        for event in pygame.event.get():
+                            if event.type == pygame.QUIT:
+                                pygame.quit()
+                                sys.exit()
+
+                            if event.type == pygame.KEYDOWN:
+                                if event.key == pygame.K_BACKSPACE:
+                                    user_name = user_name[:-1]
+                                else:
+                                    user_name += event.unicode
+
+                                if event.key == pygame.K_RETURN:
+                                    user_name = user_name[:-1]
+                                    running = False
+
+                        screen.fill((240, 194, 70))
+                        pygame.draw.rect(screen, color, input_rect)
+                        text_surface = base_font.render(user_name, True, (255, 255, 255))
+                        screen.blit(text_surface, (input_rect.x + 5, input_rect.y + 15))
+                        screen.blit(ENTER_NAME, (385, 100))
+                        screen.blit(SMALL_LOGO, (20, 20))
+                        pygame.display.flip()
+                        if not running:
+                            screen = pygame.display.set_mode((1500, 1000))
+                            screen.fill((240, 194, 70))
+                            screen_display = pygame.display
+                            screen.blit(TEXT_GLAD, (350, 350))
+                            screen.blit(SMALL_LOGO, (20, 20))
+                            screen_display.update()
+                            ELDERLY_PEOPLE_DICT[user_name] = user_text
+                            with open("dict_file.txt","w") as file:
+                                for name,num in ELDERLY_PEOPLE_DICT.items():
+
+                                    file.write(name+" "+num+"\n")
+                            ELDERLY_PHONE_NUM.append(user_text)
+                            with open("list_file.txt", "w") as file:
+                                for tel in ELDERLY_PHONE_NUM:
+                                    file.write(tel + "\n")
+
+                            # print(ELDERLY_PEOPLE_DICT)
+                            # print(ELDERLY_PHONE_NUM)
+                            pygame.time.delay(1000)
+                            pygame.quit()
+                            sys.exit()
+
+                elif event.key == pygame.K_KP_MINUS:
+                    pygame.quit()
+                    sys.exit()
+
 
 # Creating hello elder screen:
 else:
