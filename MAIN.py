@@ -79,7 +79,6 @@ else:
         screen_display.update()
         playsound('elder1.mp3')
 
-
     elif user_text == ELDERLY_PEOPLE_DICT["ELDER2"]:
         screen = pygame.display.set_mode((1500, 1000))
         screen.fill((240, 194, 70))

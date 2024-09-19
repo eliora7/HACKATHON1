@@ -68,37 +68,40 @@ ELDERLY_PHONE_NUM = ["0509887622", "0544478914", "0529883455", "0501665897", "05
 ELDERLY_PEOPLE_DICT = {"ELDER1": "0509887622", "ELDER2": "0544478914", "ELDER3": "0529883455", "ELDER4": "0501665897",
                        "ELDER5": "0522115633", "ELDER6": "0525593288"}
 
-elder1 = 'Hello Ruth'
-language = 'en'
-my_obj = gTTS(text=elder1, lang=language, slow=False)
+# Play the text:
+LANGUAGE = 'en'
+
+HELLO_ELDER1 = 'Hello Ruth'
+my_obj = gTTS(text=HELLO_ELDER1, lang=LANGUAGE, slow=False)
 my_obj.save("elder1.mp3")
 
-elder2 = 'Hello Anna'
-language = 'en'
-my_obj = gTTS(text=elder2, lang=language, slow=False)
+HELLO_ELDER2 = 'Hello Anna'
+my_obj = gTTS(text=HELLO_ELDER2, lang=LANGUAGE, slow=False)
 my_obj.save("elder2.mp3")
 
-elder3 = 'Hello Rivka'
-language = 'en'
-my_obj = gTTS(text=elder3, lang=language, slow=False)
+HELLO_ELDER3 = 'Hello Rivka'
+my_obj = gTTS(text=HELLO_ELDER3, lang=LANGUAGE, slow=False)
 my_obj.save("elder3.mp3")
 
-elder4 = 'Hello Moshe'
-language = 'en'
-my_obj = gTTS(text=elder4, lang=language, slow=False)
+HELLO_ELDER4 = 'Hello Moshe'
+my_obj = gTTS(text=HELLO_ELDER4, lang=LANGUAGE, slow=False)
 my_obj.save("elder4.mp3")
 
-elder5 = 'Hello Shlomi'
-language = 'en'
-my_obj = gTTS(text=elder5, lang=language, slow=False)
+HELLO_ELDER5 = 'Hello Shlomi'
+my_obj = gTTS(text=HELLO_ELDER5, lang=LANGUAGE, slow=False)
 my_obj.save("elder5.mp3")
 
-elder6 = 'Hello Avi'
-language = 'en'
-my_obj = gTTS(text=elder6, lang=language, slow=False)
+HELLO_ELDER6 = 'Hello Avi'
+my_obj = gTTS(text=HELLO_ELDER6, lang=LANGUAGE, slow=False)
 my_obj.save("elder6.mp3")
 
-bye = 'Thank you for using our application, bye bye'
-language = 'en'
-my_obj = gTTS(text=bye, lang=language, slow=False)
+BYE_BYE = 'Thank you for using our application, bye bye'
+my_obj = gTTS(text=BYE_BYE, lang=LANGUAGE, slow=False)
 my_obj.save("bye.mp3")
+
+CANT_SEE_WELL = ("Please choose the service. for food service enter 1, for cleaning service enter 2 "
+                 "for fixing service enter 3, for carrying heavy loads service enter 4, "
+                 "for listener service enter 5 and for lawyer service enter 6 ")
+my_obj = gTTS(text=CANT_SEE_WELL, lang=LANGUAGE, slow=False)
+my_obj.save("cant_see_well.mp3")
+
