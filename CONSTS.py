@@ -105,3 +105,30 @@ CANT_SEE_WELL = ("Please choose the service. for food service enter 1, for clean
 my_obj = gTTS(text=CANT_SEE_WELL, lang=LANGUAGE, slow=False)
 my_obj.save("cant_see_well.mp3")
 
+PEOPLE1_COMING = "Tal food is coming, her phone number is 0525675673"
+my_obj = gTTS(text=PEOPLE1_COMING, lang=LANGUAGE, slow=False)
+my_obj.save("people1_coming.mp3")
+
+PEOPLE2_COMING = "Gal cleaning is coming, her phone number is 0525675671"
+my_obj = gTTS(text=PEOPLE2_COMING, lang=LANGUAGE, slow=False)
+my_obj.save("people2_coming.mp3")
+
+PEOPLE3_COMING = "Bar fixing is coming, his phone number is 0525675670"
+my_obj = gTTS(text=PEOPLE3_COMING, lang=LANGUAGE, slow=False)
+my_obj.save("people3_coming.mp3")
+
+PEOPLE4_COMING = "Noam carrying heavy loads is coming, his phone number is 0525675674"
+my_obj = gTTS(text=PEOPLE4_COMING, lang=LANGUAGE, slow=False)
+my_obj.save("people4_coming.mp3")
+
+PEOPLE5_COMING = "Stav listener is coming, her phone number is 0525675672"
+my_obj = gTTS(text=PEOPLE5_COMING, lang=LANGUAGE, slow=False)
+my_obj.save("people5_coming.mp3")
+
+PEOPLE6_COMING = "Rotem lawyer is coming, his phone number is 0525675675"
+my_obj = gTTS(text=PEOPLE6_COMING, lang=LANGUAGE, slow=False)
+my_obj.save("people6_coming.mp3")
+
+DID_YOU_SEE_WELL = "If you can't see well? press 1. else press 0"
+my_obj = gTTS(text=DID_YOU_SEE_WELL, lang=LANGUAGE, slow=False)
+my_obj.save("did_you_see_well.mp3")

@@ -10,12 +10,6 @@ screen.blit(LOGO, (400, 100))
 screen_display.update()
 playsound('song.mp3')
 
-# import pyttsx3
-#
-# engine = pyttsx3.init()
-# engine.save_to_file(text='Hello World', filename='PATH/TO/OUTPUT.wav')
-# engine.runAndWait()
-
 # Creating phone_num screen:
 clock = pygame.time.Clock()
 screen = pygame.display.set_mode([1500, 1000])
@@ -26,12 +20,10 @@ color_passive = pygame.Color("black")
 color = color_passive
 
 # Relax music:
-pygame.mixer.init()  # Initiate pygame.mixer
-pygame.mixer.music.load('relax_song.mp3')  # Load song to play
-pygame.mixer.music.set_volume(0.7)  # Change volume
-pygame.mixer.music.play()  # Play song infinitely
-pygame.mixer.music.rewind()
-
+pygame.mixer.init()
+pygame.mixer.music.load('relax_song.mp3')
+pygame.mixer.music.set_volume(0.7)
+pygame.mixer.music.play()
 running = True
 while running:
     for event in pygame.event.get():
@@ -125,101 +117,125 @@ else:
         playsound('elder6.mp3')
     pygame.display.flip()
 
-    # Creating activity screen:
-    running = True
-    while running:
-        screen.fill((240, 194, 70))
-        screen.blit(TITLE, (400, 50))
-        screen.blit(FOOD, (200, 250))
-        screen.blit(CLEAN, (600, 250))
-        screen.blit(FIX, (1050, 250))
-        screen.blit(STUFF, (200, 600))
-        screen.blit(TALKING, (600, 600))
-        screen.blit(LAWYER, (1050, 600))
-        screen.blit(SMALL_LOGO, (20, 20))
-
-        # Performing actions in the game:
+    WHAT_PRESS = 9
+    run = True
+    screen = pygame.display.set_mode((1500, 1000))
+    screen.fill((240, 194, 70))
+    screen_display = pygame.display
+    screen.blit(SMALL_LOGO, (20, 20))
+    screen_display.update()
+    playsound('did_you_see_well.mp3')
+    while run:
         for event in pygame.event.get():
             # Clicking on the red X:
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
-
             # Creating is coming screen:
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_1:
-                    screen = pygame.display.set_mode((1500, 1000))
-                    screen.fill((255, 228, 181))
-                    screen.blit(PEOPLE1, (400, 100))
-                    screen.blit(IS_COMING, (400, 800))
-                    screen.blit(SMALL_LOGO, (20, 20))
-                    screen_display = pygame.display
-                    screen_display.update()
-                    running = False
-                    pygame.time.delay(3000)
+                if event.key == pygame.K_0:
+                    WHAT_PRESS = 0
+                elif event.key == pygame.K_1:
+                    WHAT_PRESS = 1
+                if event.key == pygame.K_1 or event.key == pygame.K_0:
+                    # Creating activity screen:
+                    running = True
+                    while running:
 
-                elif event.key == pygame.K_2:
-                    screen = pygame.display.set_mode((1500, 1000))
-                    screen.fill((255, 228, 181))
-                    screen.blit(PEOPLE2, (400, 100))
-                    screen.blit(IS_COMING, (400, 800))
-                    screen.blit(SMALL_LOGO, (20, 20))
-                    screen_display = pygame.display
-                    screen_display.update()
-                    running = False
-                    pygame.time.delay(3000)
+                        screen.fill((240, 194, 70))
+                        screen.blit(TITLE, (400, 50))
+                        screen.blit(FOOD, (200, 250))
+                        screen.blit(CLEAN, (600, 250))
+                        screen.blit(FIX, (1050, 250))
+                        screen.blit(STUFF, (200, 600))
+                        screen.blit(TALKING, (600, 600))
+                        screen.blit(LAWYER, (1050, 600))
+                        screen.blit(SMALL_LOGO, (20, 20))
 
-                elif event.key == pygame.K_3:
-                    screen = pygame.display.set_mode((1500, 1000))
-                    screen.fill((255, 228, 181))
-                    screen.blit(PEOPLE3, (400, 100))
-                    screen.blit(IS_COMING, (400, 800))
-                    screen.blit(SMALL_LOGO, (20, 20))
-                    screen_display = pygame.display
-                    screen_display.update()
-                    running = False
-                    pygame.time.delay(3000)
+                        # Performing actions in the game:
+                        for event in pygame.event.get():
+                            # Clicking on the red X:
+                            if event.type == pygame.QUIT:
+                                pygame.quit()
+                                sys.exit()
 
-                elif event.key == pygame.K_4:
-                    screen = pygame.display.set_mode((1500, 1000))
-                    screen.fill((255, 228, 181))
-                    screen.blit(PEOPLE4, (400, 100))
-                    screen.blit(IS_COMING, (400, 800))
-                    screen.blit(SMALL_LOGO, (20, 20))
-                    screen_display = pygame.display
-                    screen_display.update()
-                    running = False
-                    pygame.time.delay(3000)
+                            # Creating is coming screen:
+                            if event.type == pygame.KEYDOWN:
+                                if event.key == pygame.K_1:
+                                    screen = pygame.display.set_mode((1500, 1000))
+                                    screen.fill((255, 228, 181))
+                                    screen.blit(PEOPLE1, (400, 100))
+                                    screen.blit(IS_COMING, (400, 800))
+                                    screen.blit(SMALL_LOGO, (20, 20))
+                                    screen_display = pygame.display
+                                    screen_display.update()
+                                    running = False
+                                    pygame.time.delay(3000)
 
-                elif event.key == pygame.K_5:
-                    screen = pygame.display.set_mode((1500, 1000))
-                    screen.fill((255, 228, 181))
-                    screen.blit(PEOPLE5, (400, 100))
-                    screen.blit(IS_COMING, (400, 800))
-                    screen.blit(SMALL_LOGO, (20, 20))
-                    screen_display = pygame.display
-                    screen_display.update()
-                    running = False
-                    pygame.time.delay(3000)
+                                elif event.key == pygame.K_2:
+                                    screen = pygame.display.set_mode((1500, 1000))
+                                    screen.fill((255, 228, 181))
+                                    screen.blit(PEOPLE2, (400, 100))
+                                    screen.blit(IS_COMING, (400, 800))
+                                    screen.blit(SMALL_LOGO, (20, 20))
+                                    screen_display = pygame.display
+                                    screen_display.update()
+                                    running = False
+                                    pygame.time.delay(3000)
 
-                elif event.key == pygame.K_6:
-                    screen = pygame.display.set_mode((1500, 1000))
-                    screen.fill((255, 228, 181))
-                    screen.blit(PEOPLE6, (400, 100))
-                    screen.blit(IS_COMING, (400, 800))
-                    screen.blit(SMALL_LOGO, (20, 20))
-                    screen_display = pygame.display
-                    screen_display.update()
-                    pygame.time.delay(3000)
-                    running = False
-            pygame.display.flip()
+                                elif event.key == pygame.K_3:
+                                    screen = pygame.display.set_mode((1500, 1000))
+                                    screen.fill((255, 228, 181))
+                                    screen.blit(PEOPLE3, (400, 100))
+                                    screen.blit(IS_COMING, (400, 800))
+                                    screen.blit(SMALL_LOGO, (20, 20))
+                                    screen_display = pygame.display
+                                    screen_display.update()
+                                    running = False
+                                    pygame.time.delay(3000)
 
-    # Creating last screen:
-    last_screen = pygame.display.set_mode((1500, 1000))
-    last_screen.fill((240, 194, 70))
-    screen_display = pygame.display
-    screen.blit(BYE, (550, 200))
-    screen.blit(SMALL_LOGO, (20, 20))
-    screen_display.update()
-    playsound('bye.mp3')
-    pygame.display.flip()
+                                elif event.key == pygame.K_4:
+                                    screen = pygame.display.set_mode((1500, 1000))
+                                    screen.fill((255, 228, 181))
+                                    screen.blit(PEOPLE4, (400, 100))
+                                    screen.blit(IS_COMING, (400, 800))
+                                    screen.blit(SMALL_LOGO, (20, 20))
+                                    screen_display = pygame.display
+                                    screen_display.update()
+                                    running = False
+                                    pygame.time.delay(3000)
+
+                                elif event.key == pygame.K_5:
+                                    screen = pygame.display.set_mode((1500, 1000))
+                                    screen.fill((255, 228, 181))
+                                    screen.blit(PEOPLE5, (400, 100))
+                                    screen.blit(IS_COMING, (400, 800))
+                                    screen.blit(SMALL_LOGO, (20, 20))
+                                    screen_display = pygame.display
+                                    screen_display.update()
+                                    running = False
+                                    pygame.time.delay(3000)
+
+                                elif event.key == pygame.K_6:
+                                    screen = pygame.display.set_mode((1500, 1000))
+                                    screen.fill((255, 228, 181))
+                                    screen.blit(PEOPLE6, (400, 100))
+                                    screen.blit(IS_COMING, (400, 800))
+                                    screen.blit(SMALL_LOGO, (20, 20))
+                                    screen_display = pygame.display
+                                    screen_display.update()
+                                    pygame.time.delay(3000)
+                                    running = False
+                            pygame.display.flip()
+
+                    # Creating last screen:
+                    last_screen = pygame.display.set_mode((1500, 1000))
+                    last_screen.fill((240, 194, 70))
+                    screen_display = pygame.display
+                    screen.blit(BYE, (550, 200))
+                    screen.blit(SMALL_LOGO, (20, 20))
+                    screen_display.update()
+                    playsound('bye.mp3')
+                    pygame.display.flip()
+                    pygame.quit()
+                    sys.exit()
